@@ -36,11 +36,19 @@ int _printf(const char *format, ...)
 				case 's':
 				{
 					str = va_arg(args, char *);
-					while (*str != '\0')
+					if (str == NULL)
 					{
-						putchar(*str);
-						str++;
-						count++;
+						fputs("(null)", stdout);
+						count += 6;
+					}
+					else
+					{
+						while (*str != '\0')
+						{
+							putchar(*str);
+							str++;
+							count++;
+						}
 					}
 					break;
 				}
