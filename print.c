@@ -8,10 +8,9 @@
  */
 int _printf(const char *format, ...)
 {
-	int count;
+	int count, ch;
 	va_list args;
 	va_start(args, format);
-	int ch;
 	char *str;
 
 	count = 0;
