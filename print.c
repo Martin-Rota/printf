@@ -10,7 +10,8 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	va_start(args, format);
-	int count, ch;
+	int count;
+	int ch;
 	char *str;
 
 	count = 0;
@@ -31,7 +32,7 @@ int _printf(const char *format, ...)
 				}
 				case 's':
 				{
-					*str = va_arg(args, char *);
+					str = va_arg(args, char *);
 					while (*str != '\0')
 					{
 						putchar(*str);
@@ -63,25 +64,4 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 	return (count);
-}
-
-/**
- * main - sample program
- * Return: 0 on success
- */
-
-int main(void)
-{
-	int num;
-	char ch;
-	char str[];
-
-	num = 10;
-	ch = 'A';
-	str[] = "Hello, World!";
-
-	int count = _printf("Number: %d\nCharacter: %c\nString: %s\n%%\n", num, ch, str);
-	printf("Number of characters printed: %d\n", count);
-
-	return (0);
 }
