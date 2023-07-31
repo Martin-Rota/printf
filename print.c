@@ -59,10 +59,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 				default:
-					putchar('%'); /* Print the '%' character if not followed by a known specifier */
+				{
+					putchar('%');
 					putchar(*format);
 					count += 2;
 					break;
+				}
 			}
 		}
 		else
