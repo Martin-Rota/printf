@@ -9,9 +9,9 @@
 int _printf(const char *format, ...)
 {
 	int count, ch;
+	char *str;
 	va_list args;
 	va_start(args, format);
-	char *str;
 
 	count = 0;
 
