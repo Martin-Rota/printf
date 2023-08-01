@@ -88,8 +88,8 @@ int _printf(const char *format, ...)
 
 					for (i = 0; i < digits; i++)
 					{
-						int digit = num / pow(10, digits - i - 1);
-						num %= (int)pow(10, digits - i - 1);
+						int digit = num / custom_pow(10, digits - i - 1);
+						num %= custom_pow(10, digits - i - 1);
 						putchar('0' + digit);
 						count++;
 					}
