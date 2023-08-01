@@ -58,6 +58,43 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				}
+				case 'd':
+				case 'i':
+				{
+					int num, num_copy, digits, i;
+
+					num = va_arg(args, int);
+					num_copy = num;
+					digits = 0;
+
+					if (num == 0)
+						digits = 1;
+					else
+					{
+						while (num_copy != 0)
+						{
+							num_copy /= 10;
+							digits++;
+						}
+					}
+
+					if (num < 0)
+					{
+						putchar('-');
+						count++;
+						digits--;
+						num = -num;
+					}
+
+					for (i = 0; i < digits; i++)
+					{
+						int digit = num / pow(10, digits - i - 1);
+						num %= (int)pow(10, digits - i - 1);
+						putchar('0' + digit);
+						count++;
+					}
+					break;
+				}
 				default:
 				{
 					putchar('%');
