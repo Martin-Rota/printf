@@ -5,6 +5,8 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+int custom_pow(int base, int exponent);
+
 int _printf(const char *format, ...);
 
 #endif
