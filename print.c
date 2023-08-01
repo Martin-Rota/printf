@@ -16,7 +16,10 @@ int _printf(const char *format, ...)
 	count = 0;
 
 	if (format == NULL)
+	{
+		va_end(args);
 		return (-1);
+	}
 
 	while (*format != '\0')
 	{
@@ -67,6 +70,13 @@ int _printf(const char *format, ...)
 					num_copy = num;
 					digits = 0;
 
+					if (num < 0)
+					{
+						putchar('-');
+						count++;
+						num = -num;
+					}
+
 					if (num == 0)
 						digits = 1;
 					else
@@ -76,14 +86,6 @@ int _printf(const char *format, ...)
 							num_copy /= 10;
 							digits++;
 						}
-					}
-
-					if (num < 0)
-					{
-						putchar('-');
-						count++;
-						digits--;
-						num = -num;
 					}
 
 					for (i = 0; i < digits; i++)
